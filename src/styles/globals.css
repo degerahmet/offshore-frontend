@@ -4,12 +4,14 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
+  background: #070707;
 }
 
 a {
   color: #84309C;
   text-decoration: none;
+  cursor: pointer;
 }
 
 * {

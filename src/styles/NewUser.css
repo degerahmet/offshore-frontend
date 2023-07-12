@@ -1,0 +1,109 @@
+.user-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+}
+
+.user-container__card{
+    width: 60%;
+    height: fit-content;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.user-container__card__title{
+    font-weight: 600;
+    color: black;
+    flex: 1;
+}
+
+.user-container__card__body{
+    flex: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-container__card__body__input{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    flex: 1;
+    color: #000000;
+}
+
+.user-container__card__body__input input{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: #1d1d1d 2px solid;
+    outline: none;
+    padding: 0px 10px;
+    font-size: 1.25rem;
+    color: #000000;
+}
+
+
+.user-container__card__footer{
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-container__card__footer__left__button{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-left: 20px;
+}
+
+.user-container__card__footer__left__button button{
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    background-color: #9c9c9c;
+    margin-right: 10px;
+    color: #000000;
+    border-radius: 8px;
+    border: rgb(175, 175, 175) 2px solid;
+    box-shadow: black 0px 0px 5px 0px;
+}
+
+
+
+.user-container__card__footer__right__button{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    margin-right: 20px;
+}
+
+.user-container__card__footer__right__button button{
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    background-color: #ab10ff;
+    margin-right: 10px;
+    color: #ffffff;
+    border-radius: 8px;
+    border: #ab10ff 2px solid;
+    box-shadow: rgb(46, 0, 94) 0px 0px 5px 0px;
+}
