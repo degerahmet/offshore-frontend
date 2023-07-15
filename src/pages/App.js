@@ -1,33 +1,50 @@
-import { ConnectWallet } from "@thirdweb-dev/react";
+import { ConnectWallet, useNetworkMismatch, useSwitchChain, ChainId, useAddress } from "@thirdweb-dev/react";
 import "../styles/Home.css";
-import { useAddress } from "@thirdweb-dev/react";
 import { useNavigate, Link } from 'react-router-dom';
+import { useEffect } from "react";
+import SearchBar from "../components/Header/SearchBar";
+import { jwtAtom } from "../jotai/atoms";
+import { useAtom } from "jotai";
+import { base64 } from "ethers/lib/utils";
 
 
 export default function App({ children }) {
   const address = useAddress();
   const navigate = useNavigate();
+  const isMismatched = useNetworkMismatch();
+  const switchChain = useSwitchChain();
 
-  if (address) {
-    navigate('/new-user')
-  }
+  const [ jwt, setJwt ] = useAtom(jwtAtom)
+
+  // if (address) {
+  //   navigate('/new-user')
+  // }
+  useEffect(() => {
+    if (isMismatched){
+      switchChain(ChainId.Mumbai);
+    }
+    if (address && !jwt) {
+      const auth = {
+        address: address,
+        timestamp: Date.now()
+      };
+      const auth64 = base64.encode(JSON.stringify(auth));
+    }
+  },
+  [isMismatched, switchChain])
+
   return (
     <main className="main">
       <div className="header">
         <div className="logo">
           <Link to="/"
-            href={()=>navigate('/')}
+            href={() => navigate('/')}
             rel="noopener noreferrer"
           >
             Offshore
           </Link>
         </div>
-        <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Search for a wallet or user..."
-          />
-        </div>
+        <SearchBar path='/profile/'/>
         <div className="connect">
           {address ?
             <div className="user-card" onClick={() => navigate('/profile/' + address)}>
